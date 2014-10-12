@@ -1,0 +1,45 @@
+<html>
+	<script>
+	/*
+		autor likeapple123 
+		solution for problome3
+	*/
+	var Solution_Magic_Trigonometry = (function(){
+
+		/*example test data*/	
+
+		var Input_Data = [
+			[5530,3180,1200,800],
+			[3180,3180,1200,800]
+		];	
+
+
+
+		var Solve = function(X,pX,Y,pY){
+		var ang = null;
+		var doit = null;
+
+		/*it has difference 90.0 so we have this equation*/
+
+		if(X>pX && Y>pY || X>pX && Y<pY){
+					ang = -((Math.asin((Y-pY)/Math.sqrt((X - pX)*(X - pX) + (Y - pY)*(Y - pY)))*180)/Math.PI) +90;
+		
+		}
+		else{
+			ang = ((Math.asin((Y-pY)/Math.sqrt((X - pX)*(X - pX) + (Y - pY)*(Y - pY)))*180)/Math.PI) -90;
+
+		}
+
+		if(parseInt(ang,10) === parseInt((Math.atan2(X-pX,Y-pY)*180)/(Math.PI),10)){
+			return parseInt((doit=ang),0);
+		}
+		}
+		for(var i=0; i<Input_Data.length; i++){
+			document.write("Result:="+Solve(Input_Data[i][0],Input_Data[i][1],Input_Data[i][2],Input_Data[i][3])+"</br>");
+		}
+	})();
+
+	</script>
+
+
+</html>
